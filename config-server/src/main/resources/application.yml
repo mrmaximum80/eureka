@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    cloud:
+      config:
+        server:
+          git:
+            uri: git@github.com:mrmaximum80/eureka.git
+            search-paths:
+              - "ms-config-properties/{application}/{profile}"
+server:
+  port: 8888
+eureka:
+  client:
+    service-url:
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
+
